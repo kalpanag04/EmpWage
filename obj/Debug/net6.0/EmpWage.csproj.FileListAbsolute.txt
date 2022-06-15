@@ -1,0 +1,15 @@
+C:\Users\Dell\Desktop\BridgeLabz\EmpWage\EmpWage\bin\Debug\net6.0\EmpWage.exe
+C:\Users\Dell\Desktop\BridgeLabz\EmpWage\EmpWage\bin\Debug\net6.0\EmpWage.deps.json
+C:\Users\Dell\Desktop\BridgeLabz\EmpWage\EmpWage\bin\Debug\net6.0\EmpWage.runtimeconfig.json
+C:\Users\Dell\Desktop\BridgeLabz\EmpWage\EmpWage\bin\Debug\net6.0\EmpWage.dll
+C:\Users\Dell\Desktop\BridgeLabz\EmpWage\EmpWage\bin\Debug\net6.0\EmpWage.pdb
+C:\Users\Dell\Desktop\BridgeLabz\EmpWage\EmpWage\obj\Debug\net6.0\EmpWage.csproj.AssemblyReference.cache
+C:\Users\Dell\Desktop\BridgeLabz\EmpWage\EmpWage\obj\Debug\net6.0\EmpWage.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Dell\Desktop\BridgeLabz\EmpWage\EmpWage\obj\Debug\net6.0\EmpWage.AssemblyInfoInputs.cache
+C:\Users\Dell\Desktop\BridgeLabz\EmpWage\EmpWage\obj\Debug\net6.0\EmpWage.AssemblyInfo.cs
+C:\Users\Dell\Desktop\BridgeLabz\EmpWage\EmpWage\obj\Debug\net6.0\EmpWage.csproj.CoreCompileInputs.cache
+C:\Users\Dell\Desktop\BridgeLabz\EmpWage\EmpWage\obj\Debug\net6.0\EmpWage.dll
+C:\Users\Dell\Desktop\BridgeLabz\EmpWage\EmpWage\obj\Debug\net6.0\refint\EmpWage.dll
+C:\Users\Dell\Desktop\BridgeLabz\EmpWage\EmpWage\obj\Debug\net6.0\EmpWage.pdb
+C:\Users\Dell\Desktop\BridgeLabz\EmpWage\EmpWage\obj\Debug\net6.0\EmpWage.genruntimeconfig.cache
+C:\Users\Dell\Desktop\BridgeLabz\EmpWage\EmpWage\obj\Debug\net6.0\ref\EmpWage.dll
