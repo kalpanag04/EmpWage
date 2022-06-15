@@ -1,4 +1,4 @@
-﻿class EmpWage
+﻿class Employee
 {
     static void Main(string[] args)
     {
