@@ -8,7 +8,6 @@ namespace EmpWage
 {
     class Employee
     {
-
         public void AttendenceCheck()
         {
             //constants
@@ -16,19 +15,17 @@ namespace EmpWage
             const int WORKING_DAYS = 20;
             const int IS_FULL_TIME = 8;
             const int IS_PART_TIME = 4;
-
             //variables
             int dailyWage = 0;
-            int days = 0;
-            int isPresent;
+            int days, isPresent;
             int totalWage = 0;
+            int totalHours = 0;
             //random number generation
             Random rand = new Random();
             //calculating for month
             for (days = 1; days <= WORKING_DAYS; days++)
             {
                 isPresent = rand.Next(0, 3);
-
                 //using switch case
                 switch (isPresent)
                 {
@@ -50,13 +47,15 @@ namespace EmpWage
                             break;
                         }
                 }
+                //checking total number of hours
+                totalHours += dailyWage / 20;
                 totalWage += dailyWage;
+                if (totalHours >= 100)
+                {
+                    break;
+                }
             }
-            Console.WriteLine($"Montly wage is {totalWage}");
-
-
-
+            Console.WriteLine($"Montly wage is {totalWage} and working hours is {totalHours}");
         }
-
     }
 }
