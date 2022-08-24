@@ -6,13 +6,40 @@ using System.Threading.Tasks;
 
 namespace EmpWage
 {
-    class Employee
+    interface IEmployeeWage
     {
-        public void ComputeEmpWage(string company, int wagePerHour, int numWorkingDays, int maxHoursPerMonth)
+        void ComputeEmpWage();
+        void AddCompanyEmpWage(string company, int wagePerHour, int numWorkingDays, int maxHoursPerMonth);
+    }
+
+    public class EmpWageBuilderArray : IEmployeeWage
+    {
+        private int numOfCompany = 0;
+        private CompanyEmpWage[] companyEmpWageArray;
+
+        public EmpWageBuilderArray()
+        {
+            this.companyEmpWageArray = new CompanyEmpWage[5];
+        }
+
+        public void AddCompanyEmpWage(string company, int wagePerHour, int numWorkingDays, int maxHoursPerMonth)
+        {
+            companyEmpWageArray[this.numOfCompany] = new CompanyEmpWage(company, wagePerHour, numWorkingDays, maxHoursPerMonth);
+            numOfCompany++;
+        }
+
+        public void ComputeEmpWage()
+        {
+            for (int i = 0; i < numOfCompany; i++)
+            {
+                companyEmpWageArray[i].SetTotalEmpWage(this.ComputeEmpWage(this.companyEmpWageArray[i]));
+                Console.WriteLine(this.companyEmpWageArray[i].Result());
+            }
+        }
+
+        private int ComputeEmpWage(CompanyEmpWage companyEmpWage)
         {
             //constants
-            //const int WAGE_PER_HR = 20;
-            //const int WORKING_DAYS = 20;
             const int IS_FULL_TIME = 8;
             const int IS_PART_TIME = 4;
             const int FULL_TIME = 1;
@@ -20,12 +47,12 @@ namespace EmpWage
             //variables
             int dailyWage = 0;
             int days, isPresent;
-            int totalWage = 0;
+            // int totalWage = 0;
             int totalHours = 0;
             //random number generation
             Random rand = new Random();
             //calculating for month
-            for (days = 1; days <= numWorkingDays; days++) // calculating for 20 working days
+            for (days = 1; days <= companyEmpWage.numWorkingDays; days++) // calculating for 20 working days
             {
                 isPresent = rand.Next(0, 3);
                 //using switch case
@@ -33,35 +60,28 @@ namespace EmpWage
                 {
                     case FULL_TIME: // Employee is present full time
                         {
-                            dailyWage = wagePerHour * IS_FULL_TIME;
-                            // Console.WriteLine($"Daily wage is {dailyWage}");  // daily wage is 160
+                            dailyWage = companyEmpWage.wagePerHour * IS_FULL_TIME;
                             break;
                         }
                     case PART_TIME: //employee is present for part time
                         {
-                            dailyWage = wagePerHour * IS_PART_TIME;
-                            //   Console.WriteLine($"Daily wage is {dailyWage}");  // daily wage is 80
+                            dailyWage = companyEmpWage.wagePerHour * IS_PART_TIME;
                             break;
                         }
                     default: // employee is absent
                         {
-                            //Console.WriteLine($"Daily wage is {dailyWage}"); // daily wage is 0
+                            dailyWage = isPresent;
                             break;
                         }
                 }
                 //checking total number of hours
                 totalHours += dailyWage / 20; //calculate total hours worked
-                totalWage += dailyWage; // calculating montly wage
-                if (totalHours >= maxHoursPerMonth) //maximum total hours 
+                companyEmpWage.totalWage += dailyWage; // calculating montly wage
+                if (totalHours >= companyEmpWage.maxHoursPerMonth) //maximum total hours 
                     break;
+                Console.WriteLine(" Day#: " + days + " Emp Hrs : " + totalHours);
             }
-            //Console.WriteLine($"Montly wage is {totalWage} and working hours is {totalHours}"); // output 
-            Console.WriteLine();
-            Console.WriteLine($"Company Name :{company}");
-            Console.WriteLine($"No. of hours worked :{totalHours}");
-            Console.WriteLine($"Wage Per hour :{wagePerHour}");
-            Console.WriteLine($"Monthly wage :{totalWage}");
-            Console.WriteLine();
+            return totalHours * companyEmpWage.wagePerHour;
         }
     }
 }
